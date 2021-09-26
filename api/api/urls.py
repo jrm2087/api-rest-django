@@ -18,6 +18,8 @@ from django.urls import path, include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 
+from categories.api.routers import router_categories
+
 schema_view = get_schema_view(
     openapi.Info(
         title="API",
@@ -38,4 +40,6 @@ urlpatterns = [
     path('redocs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     # views
     path('api/', include('users.api.routers')),
+    # viewSet
+    path('api/', include(router_categories.urls)),
 ]
