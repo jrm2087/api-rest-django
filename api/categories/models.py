@@ -11,4 +11,4 @@ class Category(models.Model):
 
     def save(self, *args, **kwargs):
         self.title = str(self.title).upper()
-        super().save(*args, **kwargs)
+        super(Category, self).save(*args, **kwargs)
