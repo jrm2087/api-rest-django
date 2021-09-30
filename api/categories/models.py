@@ -8,3 +8,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.title = str(self.title).upper()
+        super().save(*args, **kwargs)
